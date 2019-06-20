@@ -1,0 +1,20 @@
+{
+    "appName": "reactanalytics",
+    "roleName": "pinpointLambdaRole88e16033",
+    "cloudWatchPolicyName": "cloudWatchPolicy88e16033",
+    "pinpointPolicyName": "pinpointPolicy88e16033",
+    "authPolicyName": "pinpoint_amplify_88e16033",
+    "unauthPolicyName": "pinpoint_amplify_88e16033",
+    "authRoleName": {
+        "Ref": "AuthRoleName"
+    },
+    "unauthRoleName": {
+        "Ref": "UnauthRoleName"
+    },
+    "authRoleArn": {
+        "Fn::GetAtt": [
+            "AuthRole",
+            "Arn"
+        ]
+    }
+}

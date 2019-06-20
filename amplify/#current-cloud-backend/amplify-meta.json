@@ -1,0 +1,65 @@
+{
+	"providers": {
+		"awscloudformation": {
+			"AuthRoleName": "react-amplify-dev-20190619174448-authRole",
+			"UnauthRoleArn": "arn:aws:iam::575865355834:role/react-amplify-dev-20190619174448-unauthRole",
+			"AuthRoleArn": "arn:aws:iam::575865355834:role/react-amplify-dev-20190619174448-authRole",
+			"Region": "us-east-1",
+			"DeploymentBucketName": "react-amplify-dev-20190619174448-deployment",
+			"UnauthRoleName": "react-amplify-dev-20190619174448-unauthRole",
+			"StackName": "react-amplify-dev-20190619174448",
+			"StackId": "arn:aws:cloudformation:us-east-1:575865355834:stack/react-amplify-dev-20190619174448/9cecc930-92f4-11e9-b9f3-0ed829f607b4"
+		}
+	},
+	"hosting": {
+		"S3AndCloudFront": {
+			"service": "S3AndCloudFront",
+			"providerPlugin": "awscloudformation",
+			"providerMetadata": {
+				"s3TemplateURL": "https://s3.amazonaws.com/react-amplify-dev-20190619174448-deployment/amplify-cfn-templates/hosting/template.json",
+				"logicalId": "hostingS3AndCloudFront"
+			},
+			"lastPushTimeStamp": "2019-06-20T00:54:41.733Z",
+			"output": {
+				"S3BucketSecureURL": "https://react-amplify-hosting-bucket-dev.s3.amazonaws.com",
+				"WebsiteURL": "http://react-amplify-hosting-bucket-dev.s3-website-us-east-1.amazonaws.com",
+				"Region": "us-east-1",
+				"HostingBucketName": "react-amplify-hosting-bucket-dev"
+			},
+			"lastPushDirHash": "Nejai/6zlY+PYVR6Q6TSdtbUa0M="
+		}
+	},
+	"auth": {
+		"cognito9fe0297c": {
+			"service": "Cognito",
+			"providerPlugin": "awscloudformation",
+			"providerMetadata": {
+				"s3TemplateURL": "https://s3.amazonaws.com/react-amplify-dev-20190619174448-deployment/amplify-cfn-templates/auth/cognito9fe0297c-cloudformation-template.yml",
+				"logicalId": "authcognito9fe0297c"
+			},
+			"lastPushTimeStamp": "2019-06-20T00:54:41.735Z",
+			"output": {
+				"IdentityPoolId": "us-east-1:fb178551-5bb0-493a-b396-8606fccb13db",
+				"IdentityPoolName": "react_amplify_identitypool_235a7b21__dev"
+			},
+			"lastPushDirHash": "1SKMERjXe1V2u6W97jvY7PvIC6A="
+		}
+	},
+	"analytics": {
+		"reactanalytics": {
+			"service": "Pinpoint",
+			"providerPlugin": "awscloudformation",
+			"providerMetadata": {
+				"s3TemplateURL": "https://s3.amazonaws.com/react-amplify-dev-20190619174448-deployment/amplify-cfn-templates/analytics/pinpoint-cloudformation-template.json",
+				"logicalId": "analyticsreactanalytics"
+			},
+			"lastPushTimeStamp": "2019-06-20T00:54:41.735Z",
+			"output": {
+				"appName": "reactanalytics-dev",
+				"Region": "us-east-1",
+				"Id": "d94de6146c1340a886102296a2d804f2"
+			},
+			"lastPushDirHash": "HEyolPoI/p33mfk6xXNb8O62Bd8="
+		}
+	}
+}
