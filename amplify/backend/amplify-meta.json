@@ -14,19 +14,7 @@
 	"hosting": {
 		"S3AndCloudFront": {
 			"service": "S3AndCloudFront",
-			"providerPlugin": "awscloudformation",
-			"providerMetadata": {
-				"s3TemplateURL": "https://s3.amazonaws.com/react-amplify-dev-20190619174448-deployment/amplify-cfn-templates/hosting/template.json",
-				"logicalId": "hostingS3AndCloudFront"
-			},
-			"lastPushTimeStamp": "2019-06-20T00:54:41.733Z",
-			"output": {
-				"S3BucketSecureURL": "https://react-amplify-hosting-bucket-dev.s3.amazonaws.com",
-				"WebsiteURL": "http://react-amplify-hosting-bucket-dev.s3-website-us-east-1.amazonaws.com",
-				"Region": "us-east-1",
-				"HostingBucketName": "react-amplify-hosting-bucket-dev"
-			},
-			"lastPushDirHash": "Nejai/6zlY+PYVR6Q6TSdtbUa0M="
+			"providerPlugin": "awscloudformation"
 		}
 	},
 	"auth": {

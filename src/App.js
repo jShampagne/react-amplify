@@ -2,16 +2,16 @@ import React, { Component } from 'react';
 import logo from './logo.svg';
 import './App.css';
 import Amplify from 'aws-amplify';
-import { Auth, Analytics, AmazonPersonalizeProvider } from 'aws-amplify';
+import { Auth, Analytics } from 'aws-amplify';
 import awsconfig from './aws-exports';
+import { AmazonPersonalizeProvider } from 'aws-amplify';
 Analytics.addPluggable(new AmazonPersonalizeProvider());
 
-Amplify.configure(awsconfig);
 Analytics.configure({
   AmazonPersonalize: {
   
       // REQUIRED - The trackingId to track the events 
-      trackingId: 'dcde93cbd-6bc4-4121-bd3f-20f2640c8863',
+      trackingId: 'cde93cbd-6bc4-4121-bd3f-20f2640c8863',
       
       // OPTIONAL -  Amazon Personalize service region
       region: 'us-east-1',
@@ -24,9 +24,13 @@ Analytics.configure({
   }
 });
 
+Amplify.configure(awsconfig);
 
 class App extends Component {
-  state = {username: ''}
+  state = {
+    username: 'jake',
+    event: 'button click'
+}
 
   async componentDidMount() {
   try {
@@ -37,35 +41,55 @@ class App extends Component {
   }
 }
 
-
+personalizeEvent = () => {
+  Analytics.record({
+    eventType: "13323232",
+    userId: "user1",
+    properties: {
+      "itemId": "button",
+      "eventValue": "click"}
+},
+"AmazonPersonalize");
+}
 
 recordEvent = () => {
   Analytics.record({
-    eventType: "Event", 
-    properties: {
-      "USER_ID": "11111111",
-      "ITEM_ID": "click"
-     }
-  },
-  "AmazonPersonalize");
+    name: 'Button Click',
+    attributes: {
+      username: this.state.username,
+      event: this.state.event
+    }
+  });
+}
+
+recordEventTwo = () => {
+  Analytics.record({
+    name: 'Button Click Two',
+    attributes: {
+      username: 'Erik',
+      event: 'Clicked Button'
+    }
+  });
+}
+
+recordEventThree = () => {
+  Analytics.record({
+    name: 'Button Click Three',
+    attributes: {
+      username: 'Joe',
+      event: 'Clicked Button'
+    }
+  });
 }
   render() {
     return (
       <div className="App">
         <header className="App-header">
           <img src={logo} className="App-logo" alt="logo" />
-          <p>
-            Edit <code>src/App.js</code> and save to reload.
-          </p>
-          <a
-            className="App-link"
-            href="https://reactjs.org"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Learn React
-          </a>
-          <button onClick={this.recordEvent}>Record Event</button>
+          <button  style={{ margin: 10, width: 200, height: 50, fontSize: 16}} onClick={this.personalizeEvent}>Record Personalize Event</button>
+          <button style={{ margin: 10, width: 200, height: 50, fontSize: 16}} onClick={this.recordEvent}>Record Event One</button>
+          <button style={{ margin: 10, width: 200, height: 50, fontSize: 16}} onClick={this.recordEventTwo}>Record Event Two</button>
+          <button style={{ margin: 10, width: 200, height: 50, fontSize: 16}} onClick={this.recordEventThree}>Record Event Three</button>
         </header>
       </div>
     );
